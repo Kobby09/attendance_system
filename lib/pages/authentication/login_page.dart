@@ -1,4 +1,4 @@
-import 'package:attendance_system/pages/authentication/signuppage.dart';
+import 'package:attendance_system/pages/authentication/signup_page.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -27,6 +27,9 @@ class LoginPage extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
+              const SizedBox(
+                height: 10,
+              ),
               const TextField(
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
@@ -34,6 +37,11 @@ class LoginPage extends StatelessWidget {
                   labelStyle: TextStyle(
                     color: Color.fromRGBO(19, 47, 64, 0.7),
                     fontSize: 18.0,
+                  ),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Color.fromRGBO(19, 47, 64, 0.7),
+                    ),
                   ),
                 ),
                 style: TextStyle(
@@ -51,6 +59,11 @@ class LoginPage extends StatelessWidget {
                   labelStyle: TextStyle(
                     color: Color.fromRGBO(19, 47, 64, 0.7),
                     fontSize: 18.0,
+                  ),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Color.fromRGBO(19, 47, 64, 0.7),
+                    ),
                   ),
                 ),
                 style: TextStyle(
