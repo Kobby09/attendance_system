@@ -1,4 +1,6 @@
 import 'package:attendance_system/pages/authentication/login_page.dart';
+import 'package:attendance_system/pages/authentication/signup/employee_signup_page.dart';
+import 'package:attendance_system/pages/authentication/signup/student_signup_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

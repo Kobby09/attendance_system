@@ -1,4 +1,5 @@
 import 'package:attendance_system/pages/authentication/signup_page.dart';
+import 'package:attendance_system/pages/dashboard.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -75,7 +76,14 @@ class LoginPage extends StatelessWidget {
                 height: 40,
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Dashboard(),
+                    ),
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromRGBO(19, 47, 64, 1),
                 ),
