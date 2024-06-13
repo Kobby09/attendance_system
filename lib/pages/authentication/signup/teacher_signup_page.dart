@@ -1,8 +1,8 @@
 import 'package:attendance_system/pages/authentication/login_page.dart';
 import 'package:flutter/material.dart';
 
-class EmployeeSignupPage extends StatelessWidget {
-  const EmployeeSignupPage({super.key});
+class TeacherSignUpPage extends StatelessWidget {
+  const TeacherSignUpPage({super.key});
 
   @override
   Widget build(BuildContext context) {

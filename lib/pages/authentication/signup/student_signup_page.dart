@@ -11,47 +11,40 @@ class StudentSignUpPage extends StatefulWidget {
 }
 
 class _StudentSignUpPageState extends State<StudentSignUpPage> {
-  var studentId = TextEditingController();
-  var fullName = TextEditingController();
-  var email = TextEditingController();
-  var phoneNumber = TextEditingController();
-  var course = TextEditingController();
-  var studentClass = TextEditingController();
-  var gender = TextEditingController();
-  var startDate = TextEditingController();
-  var password = TextEditingController();
+  var studentIdController = TextEditingController();
+  var fullNameController = TextEditingController();
+  var emailController = TextEditingController();
+  var phoneNumberController = TextEditingController();
+  var courseController = TextEditingController();
+  var classController = TextEditingController();
+  var genderController = TextEditingController();
+  var startDateController = TextEditingController();
+  var passwordController = TextEditingController();
 
   void signUpStudent() async {
     // add student
     try {
       final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: email.text,
-        password: password.text,
+        email: emailController.text,
+        password: passwordController.text,
       );
+
+      print(credential);
 
       // CollectionReference students =
 
       FirebaseFirestore.instance.collection('students').add({
-        'student_id': studentId.text,
-        'full_name': fullName.text,
-        'email': email.text,
-        'phone_number': phoneNumber.text,
-        'course': course.text,
-        'student_class': studentClass.text,
-        'gender': gender.text,
-        'start_date': startDate.text,
+        'student_id': studentIdController.text,
+        'full_name': fullNameController.text,
+        'email': emailController.text,
+        'phone_number': phoneNumberController.text,
+        'course': courseController.text,
+        'student_class': classController.text,
+        'gender': genderController.text,
+        'start_date': startDateController.text,
       });
 
-      // Navigator.push(
-      //   context,
-      //   MaterialPageRoute(
-      //     builder: (context) => const LoginPage(),
-      //   ),
-      // );
-
       // 'users/${credential.user!.uid}'
-
-
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         print('The password provided is too weak.');
@@ -67,217 +60,134 @@ class _StudentSignUpPageState extends State<StudentSignUpPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Student Sign up'),
-        backgroundColor: const Color.fromRGBO(153, 197, 225, 1),
+        title: const Text('Student Sign up'),
       ),
-      backgroundColor: const Color.fromRGBO(153, 197, 225, 1),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: SingleChildScrollView(
           child: Column(
             children: [
               TextField(
-                controller: studentId,
+                controller: studentIdController,
                 keyboardType: TextInputType.text,
                 decoration: const InputDecoration(
                   labelText: "Student ID",
-                  labelStyle: TextStyle(
-                    color: Color.fromRGBO(19, 47, 64, 0.7),
-                    fontSize: 18.0,
-                  ),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color.fromRGBO(19, 47, 64, 0.7),
-                    ),
-                  ),
                 ),
                 style: const TextStyle(
                   color: Color.fromRGBO(19, 47, 64, 1),
-                  fontSize: 20,
+                  fontSize: 16,
                 ),
               ),
               const SizedBox(
                 height: 10,
               ),
               TextField(
-                controller: fullName,
+                controller: fullNameController,
                 keyboardType: TextInputType.text,
                 decoration: const InputDecoration(
                   labelText: "Full Name",
-                  labelStyle: TextStyle(
-                    color: Color.fromRGBO(19, 47, 64, 0.7),
-                    fontSize: 18.0,
-                  ),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color.fromRGBO(19, 47, 64, 0.7),
-                    ),
-                  ),
                 ),
                 style: const TextStyle(
                   color: Color.fromRGBO(19, 47, 64, 1),
-                  fontSize: 20,
+                  fontSize: 16,
                 ),
               ),
               const SizedBox(
                 height: 10,
               ),
               TextField(
-                controller: email,
+                controller: emailController,
                 keyboardType: TextInputType.emailAddress,
                 decoration: const InputDecoration(
                   labelText: "Email Address",
-                  labelStyle: TextStyle(
-                    color: Color.fromRGBO(19, 47, 64, 0.7),
-                    fontSize: 18.0,
-                  ),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color.fromRGBO(19, 47, 64, 0.7),
-                    ),
-                  ),
                 ),
                 style: const TextStyle(
                   color: Color.fromRGBO(19, 47, 64, 1),
-                  fontSize: 20,
+                  fontSize: 16,
                 ),
               ),
               const SizedBox(
                 height: 10,
               ),
               TextField(
-                controller: phoneNumber,
+                controller: phoneNumberController,
                 keyboardType: TextInputType.phone,
                 decoration: const InputDecoration(
                   labelText: "Phone Number",
-                  labelStyle: TextStyle(
-                    color: Color.fromRGBO(19, 47, 64, 0.7),
-                    fontSize: 18.0,
-                  ),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color.fromRGBO(19, 47, 64, 0.7),
-                    ),
-                  ),
                 ),
                 style: const TextStyle(
                   color: Color.fromRGBO(19, 47, 64, 1),
-                  fontSize: 20,
+                  fontSize: 16,
                 ),
               ),
               const SizedBox(
                 height: 10,
               ),
               TextField(
-                controller: course,
+                controller: courseController,
                 keyboardType: TextInputType.text,
                 decoration: const InputDecoration(
                   labelText: "Course",
-                  labelStyle: TextStyle(
-                    color: Color.fromRGBO(19, 47, 64, 0.7),
-                    fontSize: 18.0,
-                  ),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color.fromRGBO(19, 47, 64, 0.7),
-                    ),
-                  ),
                 ),
                 style: const TextStyle(
                   color: Color.fromRGBO(19, 47, 64, 1),
-                  fontSize: 20,
+                  fontSize: 16,
                 ),
               ),
               const SizedBox(
                 height: 10,
               ),
               TextField(
-                controller: studentClass,
+                controller: classController,
                 keyboardType: TextInputType.text,
                 decoration: const InputDecoration(
                   labelText: "Class",
-                  labelStyle: TextStyle(
-                    color: Color.fromRGBO(19, 47, 64, 0.7),
-                    fontSize: 18.0,
-                  ),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color.fromRGBO(19, 47, 64, 0.7),
-                    ),
-                  ),
                 ),
                 style: const TextStyle(
                   color: Color.fromRGBO(19, 47, 64, 1),
-                  fontSize: 20,
+                  fontSize: 16,
                 ),
               ),
               const SizedBox(
                 height: 10,
               ),
               TextField(
-                controller: gender,
+                controller: genderController,
                 keyboardType: TextInputType.text,
                 decoration: const InputDecoration(
                   labelText: "Gender",
-                  labelStyle: TextStyle(
-                    color: Color.fromRGBO(19, 47, 64, 0.7),
-                    fontSize: 18.0,
-                  ),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color.fromRGBO(19, 47, 64, 0.7),
-                    ),
-                  ),
                 ),
                 style: const TextStyle(
                   color: Color.fromRGBO(19, 47, 64, 1),
-                  fontSize: 20,
+                  fontSize: 16,
                 ),
               ),
               const SizedBox(
                 height: 10,
               ),
               TextField(
-                controller: startDate,
+                controller: startDateController,
                 keyboardType: TextInputType.text,
                 decoration: const InputDecoration(
                   labelText: "Start Date",
-                  labelStyle: TextStyle(
-                    color: Color.fromRGBO(19, 47, 64, 0.7),
-                    fontSize: 18.0,
-                  ),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color.fromRGBO(19, 47, 64, 0.7),
-                    ),
-                  ),
                 ),
                 style: const TextStyle(
                   color: Color.fromRGBO(19, 47, 64, 1),
-                  fontSize: 20,
+                  fontSize: 16,
                 ),
               ),
               const SizedBox(
                 height: 10,
               ),
               TextField(
-                controller: password,
+                controller: passwordController,
                 obscureText: true,
                 decoration: const InputDecoration(
                   labelText: "Password",
-                  labelStyle: TextStyle(
-                    color: Color.fromRGBO(19, 47, 64, 0.7),
-                    fontSize: 18.0,
-                  ),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color.fromRGBO(19, 47, 64, 0.7),
-                    ),
-                  ),
                 ),
                 style: const TextStyle(
                   color: Color.fromRGBO(19, 47, 64, 1),
-                  fontSize: 20,
+                  fontSize: 16,
                 ),
               ),
               const SizedBox(
@@ -286,10 +196,15 @@ class _StudentSignUpPageState extends State<StudentSignUpPage> {
               SizedBox(
                 height: 50,
                 child: ElevatedButton(
-                  onPressed: signUpStudent,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromRGBO(19, 47, 64, 0.7),
-                  ),
+                  onPressed: () {
+                    signUpStudent();
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const LoginPage(),
+                      ),
+                    );
+                  },
                   child: const Center(
                     child: Text(
                       "SIGNUP",
