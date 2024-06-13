@@ -7,6 +7,10 @@ class StudentSignUpPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Student Sign up'),
+        backgroundColor: const Color.fromRGBO(153, 197, 225, 1),
+      ),
       backgroundColor: const Color.fromRGBO(153, 197, 225, 1),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
