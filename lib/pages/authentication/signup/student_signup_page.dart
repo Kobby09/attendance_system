@@ -31,7 +31,7 @@ class _StudentSignUpPageState extends State<StudentSignUpPage> {
 
       // CollectionReference students =
 
-      FirebaseFirestore.instance.collection('users/students').add({
+      FirebaseFirestore.instance.collection('students').add({
         'student_id': studentId.text,
         'full_name': fullName.text,
         'email': email.text,
