@@ -1,5 +1,5 @@
 import 'package:attendance_system/pages/authentication/signup/account_type_page.dart';
-import 'package:attendance_system/pages/dashboard.dart';
+import 'package:attendance_system/pages/students/student_main_page.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -63,7 +63,7 @@ class LoginPage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const Dashboard(),
+                      builder: (context) => const StudentMainPage(),
                     ),
                   );
                 },
