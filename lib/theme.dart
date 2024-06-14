@@ -29,5 +29,9 @@ class AppTheme {
         backgroundColor: const Color.fromRGBO(19, 47, 64, 1),
       ),
     ),
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      backgroundColor: Color.fromRGBO(19, 47, 64, 1),
+      selectedItemColor: Colors.white,
+    ),
   );
 }
