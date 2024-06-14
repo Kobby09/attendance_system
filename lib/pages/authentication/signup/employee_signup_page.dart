@@ -46,6 +46,7 @@ class _EmployeeSignupPageState extends State<EmployeeSignupPage> {
           'role': roleController.text,
           'gender': genderController.text,
           'start_date': startDateController.text,
+          'password': passwordController.text,
         });
 
         Navigator.pushReplacement(

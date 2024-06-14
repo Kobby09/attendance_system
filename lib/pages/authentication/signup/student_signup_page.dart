@@ -46,6 +46,7 @@ class _StudentSignUpPageState extends State<StudentSignUpPage> {
           'student_class': classController.text,
           'gender': genderController.text,
           'start_date': startDateController.text,
+          'password': passwordController.text,
         });
 
         Navigator.pushReplacement(

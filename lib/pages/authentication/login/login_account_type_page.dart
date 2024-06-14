@@ -1,5 +1,5 @@
-import 'package:attendance_system/pages/authentication/signup/employee_signup_page.dart';
-import 'package:attendance_system/pages/authentication/signup/student_signup_page.dart';
+import 'package:attendance_system/pages/authentication/login/employee_login_page.dart';
+import 'package:attendance_system/pages/authentication/login/student_login_page.dart';
 import 'package:flutter/material.dart';
 
 class LoginAccountTypePage extends StatelessWidget {
@@ -37,7 +37,7 @@ class LoginAccountTypePage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const StudentSignUpPage(),
+                      builder: (context) => const StudentLoginPage(),
                     ),
                   );
                 },
@@ -76,7 +76,7 @@ class LoginAccountTypePage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const EmployeeSignupPage(),
+                      builder: (context) => const EmployeeLoginPage(),
                     ),
                   );
                 },
