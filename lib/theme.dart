@@ -32,6 +32,8 @@ class AppTheme {
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       backgroundColor: Color.fromRGBO(19, 47, 64, 1),
       selectedItemColor: Colors.white,
+      unselectedItemColor: Colors.white54,
+      type: BottomNavigationBarType.fixed,
     ),
   );
 }

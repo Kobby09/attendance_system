@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Dashboard extends StatelessWidget {
-  const Dashboard({super.key});
+class StudentDashboard extends StatelessWidget {
+  const StudentDashboard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +10,7 @@ class Dashboard extends StatelessWidget {
         backgroundColor: const Color.fromRGBO(19, 47, 64, 1),
         foregroundColor: Colors.white,
         title: const Text(
-          "Dashboard",
+          "Student",
         ),
         centerTitle: true,
         automaticallyImplyLeading: false,

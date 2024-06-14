@@ -1,24 +1,24 @@
-import 'package:attendance_system/pages/students/tabs/student_account.dart';
-import 'package:attendance_system/pages/students/tabs/student_attendance.dart';
-import 'package:attendance_system/pages/students/tabs/student_dashboard.dart';
-import 'package:attendance_system/pages/students/tabs/student_events.dart';
+import 'package:attendance_system/pages/employees/tabs/employee_Attendance.dart';
+import 'package:attendance_system/pages/employees/tabs/employee_account.dart';
+import 'package:attendance_system/pages/employees/tabs/employee_dashboard.dart';
+import 'package:attendance_system/pages/employees/tabs/employee_events.dart';
 import 'package:flutter/material.dart';
 
-class StudentMainPage extends StatefulWidget {
-  const StudentMainPage({super.key});
+class EmployeesMainPage extends StatefulWidget {
+  const EmployeesMainPage({super.key});
 
   @override
-  State<StudentMainPage> createState() => _StudentMainPageState();
+  State<EmployeesMainPage> createState() => _EmployeesMainPageState();
 }
 
-class _StudentMainPageState extends State<StudentMainPage> {
+class _EmployeesMainPageState extends State<EmployeesMainPage> {
   int _currentIndex = 0;
 
   final List _tabs = [
-    const StudentDashboard(),
-    const StudentAttendance(),
-    const StudentEvents(),
-    const StudentAccount(),
+    const EmployeeDashboard(),
+    const EmployeeAttendance(),
+    const EmployeeEvents(),
+    const EmployeeAccount(),
   ];
 
   void onTabTapped(int index) {
