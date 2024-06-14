@@ -15,7 +15,10 @@ class AccountTypePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Image.asset('assets/images/hello.png'),
+            Image.asset(
+              'assets/images/hello.png',
+              height: 350,
+            ),
             const Text(
               'Who are you?',
               style: TextStyle(
@@ -92,7 +95,7 @@ class AccountTypePage extends StatelessWidget {
                   color: Color.fromRGBO(19, 47, 64, 1),
                 ),
                 label: const Text(
-                  "Are you a teacher? Click here",
+                  "Are you an employee? Click here",
                   style: TextStyle(
                     color: Color.fromRGBO(19, 47, 64, 1),
                     fontWeight: FontWeight.w700,
