@@ -92,12 +92,13 @@ class _EmployeeLoginPageState extends State<EmployeeLoginPage> {
               const SizedBox(
                 height: 10,
               ),
-              const TextField(
+              TextField(
+                controller: emailController,
                 keyboardType: TextInputType.emailAddress,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: "Email Address",
                 ),
-                style: TextStyle(
+                style: const TextStyle(
                   color: Color.fromRGBO(19, 47, 64, 1),
                   fontSize: 16,
                 ),
@@ -105,12 +106,13 @@ class _EmployeeLoginPageState extends State<EmployeeLoginPage> {
               const SizedBox(
                 height: 10,
               ),
-              const TextField(
+              TextField(
+                controller: passwordController,
                 obscureText: true,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: "Password",
                 ),
-                style: TextStyle(
+                style: const TextStyle(
                   color: Color.fromRGBO(19, 47, 64, 1),
                   fontSize: 16,
                 ),
@@ -119,9 +121,7 @@ class _EmployeeLoginPageState extends State<EmployeeLoginPage> {
                 height: 40,
               ),
               ElevatedButton(
-                onPressed: () {
-                  loginEmployee();
-                },
+                onPressed: loginEmployee,
                 child: const SizedBox(
                   height: 50,
                   child: Center(
