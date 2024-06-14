@@ -1,4 +1,4 @@
-import 'package:attendance_system/pages/authentication/login_page.dart';
+import 'package:attendance_system/pages/authentication/login/student_login_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -24,27 +24,37 @@ class _StudentSignUpPageState extends State<StudentSignUpPage> {
   void signUpStudent() async {
     // add student
     try {
-      final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      final credential =
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: emailController.text,
         password: passwordController.text,
       );
 
-      print(credential);
+      User? user = credential.user;
 
-      // CollectionReference students =
+      if (user != null) {
+        FirebaseFirestore.instance
+            .collection('users')
+            .doc('students.${studentIdController.text}')
+            .set({
+          'user_type': 'student',
+          'student_id': studentIdController.text,
+          'full_name': fullNameController.text,
+          'email': emailController.text,
+          'phone_number': phoneNumberController.text,
+          'course': courseController.text,
+          'student_class': classController.text,
+          'gender': genderController.text,
+          'start_date': startDateController.text,
+        });
 
-      FirebaseFirestore.instance.collection('students').add({
-        'student_id': studentIdController.text,
-        'full_name': fullNameController.text,
-        'email': emailController.text,
-        'phone_number': phoneNumberController.text,
-        'course': courseController.text,
-        'student_class': classController.text,
-        'gender': genderController.text,
-        'start_date': startDateController.text,
-      });
-
-      // 'users/${credential.user!.uid}'
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const StudentLoginPage(),
+          ),
+        );
+      }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         print('The password provided is too weak.');
@@ -52,7 +62,11 @@ class _StudentSignUpPageState extends State<StudentSignUpPage> {
         print('The account already exists for that email.');
       }
     } catch (e) {
-      print(e);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(e.toString()),
+        ),
+      );
     }
   }
 
@@ -198,12 +212,6 @@ class _StudentSignUpPageState extends State<StudentSignUpPage> {
                 child: ElevatedButton(
                   onPressed: () {
                     signUpStudent();
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const LoginPage(),
-                      ),
-                    );
                   },
                   child: const Center(
                     child: Text(

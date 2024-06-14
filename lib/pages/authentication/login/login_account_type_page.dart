@@ -1,9 +1,9 @@
-import 'package:attendance_system/pages/authentication/signup/teacher_signup_page.dart';
+import 'package:attendance_system/pages/authentication/signup/employee_signup_page.dart';
 import 'package:attendance_system/pages/authentication/signup/student_signup_page.dart';
 import 'package:flutter/material.dart';
 
-class AccountTypePage extends StatelessWidget {
-  const AccountTypePage({super.key});
+class LoginAccountTypePage extends StatelessWidget {
+  const LoginAccountTypePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +76,7 @@ class AccountTypePage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const TeacherSignUpPage(),
+                      builder: (context) => const EmployeeSignupPage(),
                     ),
                   );
                 },

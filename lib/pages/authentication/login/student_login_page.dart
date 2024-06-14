@@ -1,9 +1,55 @@
-import 'package:attendance_system/pages/authentication/signup/account_type_page.dart';
+import 'package:attendance_system/pages/authentication/signup/signup_account_type_page.dart';
 import 'package:attendance_system/pages/students/student_main_page.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class StudentLoginPage extends StatefulWidget {
+  const StudentLoginPage({super.key});
+
+  @override
+  State<StudentLoginPage> createState() => _StudentLoginPageState();
+}
+
+class _StudentLoginPageState extends State<StudentLoginPage> {
+  var studentIdController = TextEditingController();
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
+
+  void loginStudent() async {
+    // login user
+    try {
+      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+
+      User? user = credential.user;
+
+      if (user != null) {
+        await FirebaseFirestore.instance
+            .collection('users')
+            .doc('students.${studentIdController.text}')
+            .get()
+            .then((DocumentSnapshot documentSnapshot) {
+          if (documentSnapshot.exists) {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const StudentMainPage(),
+              ),
+            );
+          }
+        });
+      }
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        print('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        print('Wrong password provided for that user.');
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,12 +78,13 @@ class LoginPage extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              const TextField(
-                keyboardType: TextInputType.emailAddress,
-                decoration: InputDecoration(
-                  labelText: "Email Address",
+              TextField(
+                controller: studentIdController,
+                keyboardType: TextInputType.text,
+                decoration: const InputDecoration(
+                  labelText: "Student ID",
                 ),
-                style: TextStyle(
+                style: const TextStyle(
                   color: Color.fromRGBO(19, 47, 64, 1),
                   fontSize: 16,
                 ),
@@ -45,12 +92,27 @@ class LoginPage extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              const TextField(
+              TextField(
+                controller: emailController,
+                keyboardType: TextInputType.emailAddress,
+                decoration: const InputDecoration(
+                  labelText: "Email Address",
+                ),
+                style: const TextStyle(
+                  color: Color.fromRGBO(19, 47, 64, 1),
+                  fontSize: 16,
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              TextField(
+                controller: passwordController,
                 obscureText: true,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: "Password",
                 ),
-                style: TextStyle(
+                style: const TextStyle(
                   color: Color.fromRGBO(19, 47, 64, 1),
                   fontSize: 16,
                 ),
@@ -60,12 +122,7 @@ class LoginPage extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const StudentMainPage(),
-                    ),
-                  );
+                  loginStudent();
                 },
                 child: const SizedBox(
                   height: 50,
@@ -89,7 +146,7 @@ class LoginPage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const AccountTypePage(),
+                      builder: (context) => const SignUpAccountTypePage(),
                     ),
                   );
                 },

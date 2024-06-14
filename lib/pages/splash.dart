@@ -1,6 +1,5 @@
 import 'dart:async';
-
-import 'package:attendance_system/pages/authentication/login_page.dart';
+import 'package:attendance_system/pages/authentication/login/login_account_type_page.dart';
 import 'package:flutter/material.dart';
 
 class SplashPage extends StatefulWidget {
@@ -19,7 +18,7 @@ class _SplashPageState extends State<SplashPage> {
       () => Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => const LoginPage(),
+          builder: (context) => const LoginAccountTypePage(),
         ),
       ),
     );
