@@ -29,7 +29,7 @@ class _SplashPageState extends State<SplashPage> {
     return Container(
       color: Theme.of(context).primaryColor,
       child: Center(
-        child: Image.asset('assets/images/splash.png'),
+        child: Image.asset('assets/images/splash.png', height: 400,),
       ),
     );
   }

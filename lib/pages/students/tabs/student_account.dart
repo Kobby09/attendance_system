@@ -1,3 +1,5 @@
+import 'package:attendance_system/pages/authentication/login/login_account_type_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class StudentAccount extends StatelessWidget {
@@ -20,6 +22,33 @@ class StudentAccount extends StatelessWidget {
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Theme.of(context).colorScheme.primary,
+              ),
+            ),
+            const SizedBox(
+              height: 40,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                FirebaseAuth.instance.signOut();
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const LoginAccountTypePage(),
+                  ),
+                );
+              },
+              child: const SizedBox(
+                height: 50,
+                child: Center(
+                  child: Text(
+                    "Sign out",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
               ),
             ),
           ],

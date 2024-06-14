@@ -1,4 +1,4 @@
-import 'package:attendance_system/pages/authentication/signup/signup_account_type_page.dart';
+import 'package:attendance_system/pages/authentication/signup/employee_signup_page.dart';
 import 'package:attendance_system/pages/employees/employees_main_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -144,7 +144,7 @@ class _EmployeeLoginPageState extends State<EmployeeLoginPage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const SignUpAccountTypePage(),
+                      builder: (context) => const EmployeeSignupPage(),
                     ),
                   );
                 },

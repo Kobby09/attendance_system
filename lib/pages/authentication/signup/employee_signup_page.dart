@@ -24,8 +24,7 @@ class _EmployeeSignupPageState extends State<EmployeeSignupPage> {
   void signUpEmployee() async {
     // add employee
     try {
-      final credential =
-          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: emailController.text,
         password: passwordController.text,
       );
@@ -33,10 +32,7 @@ class _EmployeeSignupPageState extends State<EmployeeSignupPage> {
       User? user = credential.user;
 
       if (user != null) {
-        FirebaseFirestore.instance
-            .collection('users')
-            .doc('employees.${employeeIdController.text}')
-            .set({
+        FirebaseFirestore.instance.collection('users').doc('employees.${employeeIdController.text}').set({
           'user_type': 'employee',
           'employee_id': employeeIdController.text,
           'full_name': fullNameController.text,
@@ -76,9 +72,7 @@ class _EmployeeSignupPageState extends State<EmployeeSignupPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Employee Sign up'),
-        backgroundColor: const Color.fromRGBO(153, 197, 225, 1),
       ),
-      backgroundColor: const Color.fromRGBO(153, 197, 225, 1),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: SingleChildScrollView(
@@ -89,19 +83,10 @@ class _EmployeeSignupPageState extends State<EmployeeSignupPage> {
                 keyboardType: TextInputType.text,
                 decoration: const InputDecoration(
                   labelText: "Employee ID",
-                  labelStyle: TextStyle(
-                    color: Color.fromRGBO(19, 47, 64, 0.7),
-                    fontSize: 18.0,
-                  ),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color.fromRGBO(19, 47, 64, 0.7),
-                    ),
-                  ),
                 ),
                 style: const TextStyle(
                   color: Color.fromRGBO(19, 47, 64, 1),
-                  fontSize: 20,
+                  fontSize: 16,
                 ),
               ),
               const SizedBox(
@@ -112,19 +97,10 @@ class _EmployeeSignupPageState extends State<EmployeeSignupPage> {
                 keyboardType: TextInputType.text,
                 decoration: const InputDecoration(
                   labelText: "Full Name",
-                  labelStyle: TextStyle(
-                    color: Color.fromRGBO(19, 47, 64, 0.7),
-                    fontSize: 18.0,
-                  ),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color.fromRGBO(19, 47, 64, 0.7),
-                    ),
-                  ),
                 ),
                 style: const TextStyle(
                   color: Color.fromRGBO(19, 47, 64, 1),
-                  fontSize: 20,
+                  fontSize: 16,
                 ),
               ),
               const SizedBox(
@@ -135,19 +111,10 @@ class _EmployeeSignupPageState extends State<EmployeeSignupPage> {
                 keyboardType: TextInputType.emailAddress,
                 decoration: const InputDecoration(
                   labelText: "Email Address",
-                  labelStyle: TextStyle(
-                    color: Color.fromRGBO(19, 47, 64, 0.7),
-                    fontSize: 18.0,
-                  ),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color.fromRGBO(19, 47, 64, 0.7),
-                    ),
-                  ),
                 ),
                 style: const TextStyle(
                   color: Color.fromRGBO(19, 47, 64, 1),
-                  fontSize: 20,
+                  fontSize: 16,
                 ),
               ),
               const SizedBox(
@@ -158,19 +125,10 @@ class _EmployeeSignupPageState extends State<EmployeeSignupPage> {
                 keyboardType: TextInputType.phone,
                 decoration: const InputDecoration(
                   labelText: "Phone Number",
-                  labelStyle: TextStyle(
-                    color: Color.fromRGBO(19, 47, 64, 0.7),
-                    fontSize: 18.0,
-                  ),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color.fromRGBO(19, 47, 64, 0.7),
-                    ),
-                  ),
                 ),
                 style: const TextStyle(
                   color: Color.fromRGBO(19, 47, 64, 1),
-                  fontSize: 20,
+                  fontSize: 16,
                 ),
               ),
               const SizedBox(
@@ -181,19 +139,10 @@ class _EmployeeSignupPageState extends State<EmployeeSignupPage> {
                 keyboardType: TextInputType.text,
                 decoration: const InputDecoration(
                   labelText: "Department",
-                  labelStyle: TextStyle(
-                    color: Color.fromRGBO(19, 47, 64, 0.7),
-                    fontSize: 18.0,
-                  ),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color.fromRGBO(19, 47, 64, 0.7),
-                    ),
-                  ),
                 ),
                 style: const TextStyle(
                   color: Color.fromRGBO(19, 47, 64, 1),
-                  fontSize: 20,
+                  fontSize: 16,
                 ),
               ),
               const SizedBox(
@@ -204,19 +153,10 @@ class _EmployeeSignupPageState extends State<EmployeeSignupPage> {
                 keyboardType: TextInputType.text,
                 decoration: const InputDecoration(
                   labelText: "Role",
-                  labelStyle: TextStyle(
-                    color: Color.fromRGBO(19, 47, 64, 0.7),
-                    fontSize: 18.0,
-                  ),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color.fromRGBO(19, 47, 64, 0.7),
-                    ),
-                  ),
                 ),
                 style: const TextStyle(
                   color: Color.fromRGBO(19, 47, 64, 1),
-                  fontSize: 20,
+                  fontSize: 16,
                 ),
               ),
               const SizedBox(
@@ -227,19 +167,10 @@ class _EmployeeSignupPageState extends State<EmployeeSignupPage> {
                 keyboardType: TextInputType.text,
                 decoration: const InputDecoration(
                   labelText: "Gender",
-                  labelStyle: TextStyle(
-                    color: Color.fromRGBO(19, 47, 64, 0.7),
-                    fontSize: 18.0,
-                  ),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color.fromRGBO(19, 47, 64, 0.7),
-                    ),
-                  ),
                 ),
                 style: const TextStyle(
                   color: Color.fromRGBO(19, 47, 64, 1),
-                  fontSize: 20,
+                  fontSize: 16,
                 ),
               ),
               const SizedBox(
@@ -250,19 +181,10 @@ class _EmployeeSignupPageState extends State<EmployeeSignupPage> {
                 keyboardType: TextInputType.text,
                 decoration: const InputDecoration(
                   labelText: "Start Date",
-                  labelStyle: TextStyle(
-                    color: Color.fromRGBO(19, 47, 64, 0.7),
-                    fontSize: 18.0,
-                  ),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color.fromRGBO(19, 47, 64, 0.7),
-                    ),
-                  ),
                 ),
                 style: const TextStyle(
                   color: Color.fromRGBO(19, 47, 64, 1),
-                  fontSize: 20,
+                  fontSize: 16,
                 ),
               ),
               const SizedBox(
@@ -273,19 +195,10 @@ class _EmployeeSignupPageState extends State<EmployeeSignupPage> {
                 obscureText: true,
                 decoration: const InputDecoration(
                   labelText: "Password",
-                  labelStyle: TextStyle(
-                    color: Color.fromRGBO(19, 47, 64, 0.7),
-                    fontSize: 18.0,
-                  ),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color.fromRGBO(19, 47, 64, 0.7),
-                    ),
-                  ),
                 ),
                 style: const TextStyle(
                   color: Color.fromRGBO(19, 47, 64, 1),
-                  fontSize: 20,
+                  fontSize: 16,
                 ),
               ),
               const SizedBox(
@@ -294,12 +207,7 @@ class _EmployeeSignupPageState extends State<EmployeeSignupPage> {
               SizedBox(
                 height: 50,
                 child: ElevatedButton(
-                  onPressed: () {
-                    signUpEmployee();
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromRGBO(19, 47, 64, 0.7),
-                  ),
+                  onPressed: signUpEmployee,
                   child: const Center(
                     child: Text(
                       "SIGNUP",
