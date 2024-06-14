@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 class AppTheme {
   static ThemeData customTheme = ThemeData(
     useMaterial3: true,
-    primaryColor: const Color.fromRGBO(19, 47, 64, 1),
+    primaryColor: const Color.fromRGBO(21, 52, 72, 1),
     scaffoldBackgroundColor: Colors.grey[100],
     colorScheme: ColorScheme.fromSeed(
       seedColor: const Color.fromRGBO(19, 47, 64, 1),

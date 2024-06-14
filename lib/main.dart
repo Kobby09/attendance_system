@@ -1,4 +1,4 @@
-import 'package:attendance_system/pages/authentication/login_page.dart';
+import 'package:attendance_system/pages/splash.dart';
 import 'package:attendance_system/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -21,7 +21,7 @@ class AttendanceSystem extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.customTheme,
-      home: const LoginPage(),
+      home: const SplashPage(),
     );
   }
 }
